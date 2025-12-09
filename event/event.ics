@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+URL:http://shan.hideak.com/convite
+DTSTART:20260114T140000Z
+DTEND:20260114T170000Z
+SUMMARY:Casamento da Shan & Hideak
+DESCRIPTION:Casamento da Shan & Hideak
+LOCATION:Dedo de Prosa - Rua Minerais, 550, Iguaçu, Ipatinga - MG 
+END:VEVENT
+END:VCALENDAR

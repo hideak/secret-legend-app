@@ -1,109 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shan & Hideak</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            DEFAULT: '#D4AF37',
-                            light: '#F3E5AB',
-                            dark: '#B4941F'
-                        },
-                        petrol: '#2C3E50',
-                    },
-                    fontFamily: {
-                        script: ['"Great Vibes"', 'cursive'],
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Lato"', 'sans-serif'],
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 1.2s ease-out forwards',
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            colors: {
+                gold: { DEFAULT: '#D4AF37', light: '#F3E5AB', dark: '#B4941F' },
+                petrol: '#2C3E50',
+            },
+            fontFamily: {
+                script: ['"Great Vibes"', 'cursive'],
+                serif: ['"Playfair Display"', 'serif'],
+                sans: ['"Lato"', 'sans-serif'],
+            },
+            keyframes: {
+                fadeInUp: {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                }
+            },
+            animation: {
+                'fade-in-up': 'fadeInUp 1.2s ease-out forwards',
+            }
+        }}}
+    </script>
     <style>
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         .delay-200 { animation-delay: 200ms; }
         .delay-500 { animation-delay: 500ms; }
+        .image-effect { filter: saturate(100%) brightness(35%) contrast(120%) hue-rotate(-15deg); }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .music-player-gradient {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #ff6b6b, #4ecdc4);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
     </style>
 </head>
 
 <body class="bg-gray-50 text-petrol font-sans antialiased overflow-x-hidden">
+    <!-- MUSIC INDICATOR -->
+    <div class="fixed top-0 left-0 right-0 flex justify-center z-30">
+        <a href="https://open.spotify.com/track/5ug53fgtAarBSGeShPPnuF?si=CImufot4SUGGku6wCXfEeg" target="_blank">
+            <div class="music-player-gradient m-4 py-2 px-6 rounded-full text-sm text-white shadow-lg cursor-pointer">
+                🎵 Aumente o volume e toque na tela! 🎵
+            </div>
+        </a>
+    </div>
 
     <!-- HERO HEADER -->
-    <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <header class="relative h-dvh min-h-[600px] flex items-center justify-center overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop" 
-                 alt="Background Casamento" 
-                 class="w-full h-full object-cover opacity-90 brightness-50"
-                 loading="eager">
+            <img class="w-full h-full object-cover image-effect" src="../images/background.jpg" alt="Background Casamento" loading="eager">
         </div>
 
         <!-- Content -->
-        <div class="relative z-10 text-center text-white px-4 mb-48">
-            <p class="animate-fade-in-up font-serif tracking-[0.3em] uppercase text-sm md:text-base mb-12 text-gray-200">
-                Vamos celebrar o amor
+        <div class="relative z-10 text-center text-white px-4 mb-12">
+            <p class="animate-fade-in-up font-serif tracking-[0.3em] uppercase text-sm md:text-base mb-2 text-gray-200">
+                Olá, [Convidado]!
             </p>
-            
-            <h1 class="animate-fade-in-up delay-200 font-script text-7xl md:text-9xl mb-6 text-gold-light drop-shadow-2xl">
+
+            <p class="animate-fade-in-up font-serif tracking-[0.3em] uppercase text-sm md:text-base mb-12 text-gray-200">
+                Vamos celebrar o amor?
+            </p>
+
+            <h1 class="animate-fade-in-up delay-200 font-script text-5xl md:text-9xl mb-6 text-gold-light drop-shadow-2xl">
                 Shan & Hideak
             </h1>
-            
+
             <div class="animate-fade-in-up delay-500 flex items-center justify-center gap-6 mb-12 opacity-90">
                 <span class="h-px w-8 md:w-16 bg-white/80"></span>
                 <div>
-                    <time class="block font-serif text-2xl md:text-3xl tracking-wide mb-2">14 . Jan . 2026</time>
+                    <time class="block font-serif text-2xl md:text-3xl tracking-wide mb-2">14/jan/2026</time>
                     <time class="block font-serif text-xl md:text-2xl tracking-wide">à partir das 11:00</time>
                 </div>
                 <span class="h-px w-8 md:w-16 bg-white/80"></span>
             </div>
 
-            <a href="#rsvp" class="animate-fade-in-up inline-block bg-gold hover:bg-gold-dark text-white py-3 px-10 rounded-full font-serif transition-all duration-300 hover:scale-105 shadow-xl border border-white/20">
-                SAVE THE DATE
-            </a>
+            <div class="animate-fade-in-up delay-500 flex items-center justify-center gap-6 mb-6 opacity-90">
+                <a href="https://wa.me/5531986959594?text=Olá%20Shan%20e%20Hideak!%20Gostaria%20de%20confirmar%20minha%20presença%20no%20casamento."
+                    target="_blank"
+                    class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-green-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487 2.082.899 2.881.721 3.376.678.544-.047 1.684-.688 1.921-1.352.237-.664.237-1.233.165-1.352z" />
+                    </svg>
+                    Confirme sua presença
+                </a>
+            </div>
+
+            <div class="animate-fade-in-up delay-500 flex items-center justify-center gap-6 mb-2 opacity-90">
+                <a href="../event/event.ics"
+                    class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-white py-3 px-10 rounded-full font-serif transition-all duration-300 hover:-translate-y-1 shadow-xl border border-white/20">
+                    SAVE THE DATE
+                </a>
+            </div>
+
             <div class="animate-fade-in-up mt-3">Toque para salvar no seu calendário!</div>
         </div>
-        
+
         <!-- Scroll Indicator -->
         <div class="absolute flex flex-col items-center bottom-16 left-0 right-0 text-center text-white/70">
-            <div class="font-serif text-2xl md:text-3xl mb-3">arrasta pra cima</div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-center" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            <div class="font-serif text-2xl md:text-3xl mb-3 animate-bounce">arrasta pra cima</div>
         </div>
     </header>
 
     <main>
         <!-- COUNTDOWN TIMER SECTION -->
         <section class="relative z-20 -mt-10 px-4">
-            <div class="container mx-auto max-w-4xl bg-white shadow-lg rounded-xl border border-gray-100 py-10 md:py-16 text-center">
+            <div
+                class="container mx-auto max-w-4xl bg-white shadow-lg rounded-xl border border-gray-100 py-10 md:py-16 text-center">
                 <h2 class="font-serif text-3xl text-gray-700 mb-8 md:mb-10">Contagem Regressiva</h2>
-                
+
                 <!-- Timer Grid: Mobile Optimized (S23) -->
                 <div id="countdown" class="flex flex-nowrap justify-center items-center gap-3 md:gap-10">
-                    
+
                     <!-- Days -->
                     <div class="flex flex-col items-center">
                         <div class="w-16 h-16 md:w-24 md:h-24 rounded-full border border-gold flex items-center justify-center bg-gray-50 shadow-sm">
@@ -111,7 +137,7 @@
                         </div>
                         <span class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400 mt-2 font-semibold">Dias</span>
                     </div>
-                    
+
                     <span class="text-2xl text-gold hidden md:block pb-6">:</span>
 
                     <!-- Hours -->
@@ -142,24 +168,52 @@
                         <span class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400 mt-2 font-semibold">Seg</span>
                     </div>
                 </div>
+
+                <div class="mt-8 px-8">Links para Maps e Uber aparecerão aqui no dia da cerimônia! 😉</div>
             </div>
         </section>
 
         <!-- STORY SECTION -->
-        <section class="py-20 md:py-28">
+        <section class="py-14 md:py-20">
             <div class="container mx-auto px-6 max-w-3xl text-center">
                 <div class="flex justify-center mb-6 text-gold">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                     </svg>
                 </div>
-                
+
                 <h2 class="font-serif text-4xl md:text-5xl mb-8 text-gray-800">Nossa História</h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-light">
-                    "Deus mudou o teu caminho até juntares com o meu e guardou a tua vida separando-a para mim. Para onde fores, irei; onde tu repousares, repousarei." <br><br>
-                    Rute 1:16-18
-                    
+                <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-light mb-8">
+                    "Aonde fores, irei; onde repousares, ali repousarei! O teu povo será o meu povo, e o teu Deus será o
+                    meu Deus!" <br><br>
+                    Rute 1:16b NVI
                 </p>
+
+                <div class="flex gap-12 justify-center mb-12">
+                    <div>
+                        <div class="text-2xl md:text-3xl leading-relaxed font-light mb-2">1</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">propósito</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">com Deus</div>
+                    </div>
+                </div>
+
+                <div class="flex gap-12 justify-center">
+                    <div>
+                        <div class="text-2xl md:text-3xl leading-relaxed font-light mb-2">818,3 km</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">de distância</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">superadas</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl md:text-3xl leading-relaxed font-light mb-2">407</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">selfies</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">de casal</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl md:text-3xl leading-relaxed font-light mb-2">9,0 GiB</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">de conversas</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">no WhatsApp</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -169,104 +223,230 @@
                 <!-- Gallery Header & Controls -->
                 <div class="flex justify-between items-end mb-8 px-2 max-w-7xl mx-auto">
                     <h2 class="font-serif text-3xl md:text-4xl text-gray-800">Nossos Momentos</h2>
-                    
+
                     <div class="flex gap-2">
-                        <button onclick="scrollGallery(-1)" aria-label="Anterior" class="p-2 rounded-full border border-gray-400 hover:bg-white hover:border-gold hover:text-gold transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        <button onclick="scrollGallery(-1)" aria-label="Anterior"
+                            class="p-2 rounded-full border border-gray-400 hover:bg-white hover:border-gold hover:text-gold transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
-                        <button onclick="scrollGallery(1)" aria-label="Próximo" class="p-2 rounded-full border border-gray-400 hover:bg-white hover:border-gold hover:text-gold transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        <button onclick="scrollGallery(1)" aria-label="Próximo"
+                            class="p-2 rounded-full border border-gray-400 hover:bg-white hover:border-gold hover:text-gold transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
                     </div>
                 </div>
 
                 <!-- Scroll Container -->
-                <div id="gallery-container" class="flex overflow-x-auto scrollbar-hide gap-4 pb-4 snap-x snap-mandatory scroll-smooth">
-                    <!-- Photo 1 -->
-                    <article class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                             alt="Foto 1" loading="lazy">
+                <div id="gallery-container"
+                    class="flex overflow-x-auto scrollbar-hide gap-4 pb-4 snap-x snap-mandatory scroll-smooth">
+
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-01.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 01" loading="lazy">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </article>
 
-                    <!-- Photo 2 -->
-                    <article class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                             alt="Foto 2" loading="lazy">
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-02.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 02" loading="lazy">
                     </article>
 
-                    <!-- Photo 3 -->
-                    <article class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                             alt="Foto 3" loading="lazy">
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-03.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 03" loading="lazy">
                     </article>
 
-                    <!-- Photo 4 -->
-                    <article class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                             alt="Foto 4" loading="lazy">
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-04.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 04" loading="lazy">
+                    </article>
+
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-05.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 05" loading="lazy">
+                    </article>
+
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-06.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 06" loading="lazy">
+                    </article>
+
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-07.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 07" loading="lazy">
+                    </article>
+
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-08.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 08" loading="lazy">
+                    </article>
+
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-09.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 09" loading="lazy">
+                    </article>
+
+                    <article
+                        class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                        <img src="../images/foto-10.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Foto 10" loading="lazy">
                     </article>
                 </div>
             </div>
         </section>
 
         <!-- DETAILS SECTION -->
-        <section class="py-20 bg-white">
+        <section class="py-12 md:py-20 bg-white">
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    
+
                     <div class="order-2 md:order-1 space-y-8">
-                        <h2 class="font-serif text-4xl text-gold mb-6 border-b border-gray-100 pb-4 inline-block">A Cerimônia</h2>
-                        
+                        <h2 class="font-serif text-4xl text-gold mb-1 border-b border-gray-100 pb-4 inline-block">A Cerimônia 🎉</h2>
+                        <div>Comemore nosso casamento conosco junto de um delicioso almoço pós-cerimônia, organizado
+                            pelo Bistrô Dedo de Prosa!</div>
+
                         <!-- Location Detail -->
                         <div class="flex gap-4 group">
-                            <div class="w-12 h-12 flex-shrink-0 bg-gray-50 rounded-full flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-white transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <div
+                                class="w-12 h-12 flex-shrink-0 bg-gray-50 rounded-full flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-white transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg uppercase tracking-wider text-gray-800">Local</h3>
                                 <address class="text-gray-600 text-lg not-italic mt-1">
-                                    Dedo de Prosa<br>
+                                    Dedo de Prosa | Casa Bistrô<br>
+                                    <span class="text-gray-500 text-base">Rua Minerais, 550, Iguaçu</span>
                                     <span class="text-gray-500 text-base">Ipatinga - MG</span>
                                 </address>
-                                <a href="https://www.google.com/maps" target="_blank" class="text-gold text-sm font-bold mt-2 inline-flex items-center gap-1 hover:underline">
-                                    VER NO MAPA
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                                </a>
+                                <div>
+                                    <a href="https://maps.app.goo.gl/T7i7VjzRs9f9xuiy8" target="_blank"
+                                        class="text-gold text-sm font-bold mt-2 inline-flex items-center gap-1 hover:underline">
+                                        VER NO MAPA
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=-19.47296&dropoff[longitude]=-42.54991&dropoff[nickname]=Dedo%20de%20Prosa"
+                                        target="_blank"
+                                        class="text-gold text-sm font-bold mt-2 inline-flex items-center gap-1 hover:underline">
+                                        CHAMAR UBER
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://www.instagram.com/dedo_de_prosa/" target="_blank"
+                                        class="text-gold text-sm font-bold mt-2 inline-flex items-center gap-1 hover:underline">
+                                        INSTAGRAM DO LOCAL
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Time Detail -->
                         <div class="flex gap-4 group">
-                            <div class="w-12 h-12 flex-shrink-0 bg-gray-50 rounded-full flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-white transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <div
+                                class="w-12 h-12 flex-shrink-0 bg-gray-50 rounded-full flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-white transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg uppercase tracking-wider text-gray-800">Horário</h3>
                                 <p class="text-gray-600 text-lg mt-1">14 de Janeiro de 2026</p>
-                                <p class="text-gray-500">Às 19:30 horas</p>
+                                <p class="text-gray-500">à partir das 11:00</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Decorative Image -->
-                    <div class="order-1 md:order-2 h-[400px] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500">
-                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop" 
-                             class="w-full h-full object-cover" 
-                             alt="Local da Cerimônia" loading="lazy">
+                    <div
+                        class="order-2 md:order-2 h-[400px] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500 cursor-pointer">
+                        <img src="../images/bistro.jpg" class="w-full h-full object-cover" alt="Local da Cerimônia"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENT PHOTOS SECTION -->
+        <section class="py-12 md:py-20 bg-gold-light/20">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-1 md:order-1 space-y-8">
+                        <h2 class="font-serif text-4xl text-gold mb-1 border-b border-gray-100 pb-4 inline-block">Fotos do Evento 🖼️</h2>
+                        <div>Após o evento, as fotos estarão disponíveis no nosso álbum de fotos de casamento, para que todos possam guardar as melhores!</div>
+                    </div>
+                    <div class="order-2 flex flex-col items-center justify-center gap-2 mb-2 opacity-90">
+                        <a href="https://photos.app.goo.gl/ZEfAfuzFtR6ooHsu7" target="_blank"
+                            class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-white py-3 px-10 rounded-full font-serif transition-all duration-300 hover:-translate-y-1 shadow-xl border border-white/20">
+                            ÁLBUM DO GOOGLE FOTOS
+                        </a>
+                        <div>Toque aqui para ver o álbum!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMMENTARY SECTION -->
+        <section class="py-12 md:py-20 bg-white">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1 space-y-8">
+                        <h2 class="font-serif text-4xl text-gold mb-1 border-b border-gray-100 pb-4 inline-block">Recados 💖</h2>
+                        <div>Deixe um recado ou um versículo bíblico para os noivos! Nós vamos amar guardar cada palavra com muito carinho!</div>
+                    </div>
+                    <div class="order-2 flex flex-col items-center justify-center gap-2 mb-2 opacity-90">
+                        <a href="#" class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-white py-3 px-10 rounded-full font-serif transition-all duration-300 hover:-translate-y-1 shadow-xl border border-white/20">
+                            ENVIAR RECADO
+                        </a>
                     </div>
                 </div>
             </div>
@@ -276,44 +456,59 @@
     <!-- FOOTER / RSVP -->
     <footer id="rsvp" class="py-24 bg-gray-900 text-white text-center relative overflow-hidden">
         <!-- Background decorative overlay -->
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-        
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
+        </div>
+
         <div class="container relative z-10 mx-auto px-4 max-w-2xl">
-            <h2 class="font-script text-5xl md:text-6xl mb-6 text-gold">R.S.V.P</h2>
+            <h2 class="font-script text-5xl md:text-6xl mb-6 text-gold">Contamos com vocês!</h2>
             <p class="text-gray-300 mb-10 text-lg leading-relaxed">
-                Sua presença é essencial para nós! <br>
+                Sua presença é essencial e muito especial para nós! <br>
                 Por favor, confirme se poderá comparecer até o dia 14/12/2025.
             </p>
-            
-            <a href="https://wa.me/5531986959594?text=%20Olá%20Shan%20e%20Hideak!%20Gostaria%20de%20confirmar%20minha%20presença%20no%20casamento." 
-               target="_blank"
-               class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-green-500/30 transition-all duration-300 transform hover:-translate-y-1">
-               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487 2.082.899 2.881.721 3.376.678.544-.047 1.684-.688 1.921-1.352.237-.664.237-1.233.165-1.352z"/>
-               </svg>
-               Confirmar no WhatsApp
+
+            <a href="https://wa.me/5531986959594?text=Olá%20Shan%20e%20Hideak!%20Gostaria%20de%20confirmar%20minha%20presença%20no%20casamento."
+                target="_blank"
+                class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-green-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487 2.082.899 2.881.721 3.376.678.544-.047 1.684-.688 1.921-1.352.237-.664.237-1.233.165-1.352z" />
+                </svg>
+                Confirme sua presença
             </a>
         </div>
-        
+
         <div class="mt-16 border-t border-gray-800 pt-8 mx-auto max-w-4xl px-4 flex flex-col items-center">
             <p class="font-script text-3xl text-gold mb-2">Shan & Hideak</p>
             <p class="text-xs text-gray-500 tracking-widest uppercase">Ipatinga - MG | 2026</p>
         </div>
     </footer>
 
+    <!-- BACKGROUND MUSIC -->
+    <audio id="background-music" loop>
+        <source src="../music/vocal-livre.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- LOGIC SCRIPTS -->
     <script>
         const CONFIG = {
-            weddingDate: new Date(2026, 0, 14, 11, 0, 0).getTime(), 
+            weddingDate: new Date(2026, 0, 14, 11, 0, 0).getTime(),
             scrollAmount: () => window.innerWidth * 0.8
         };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('background-music');
+            audio.play().catch(error => {
+                console.log('Autoplay blocked, waiting for user interaction');
+                document.body.addEventListener('click', () => { audio.play(); }, { once: true });
+            });
+        });
 
         function updateTimer() {
             const now = new Date().getTime();
             const distance = CONFIG.weddingDate - now;
 
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = 
+            if (distance < 39600000) {
+                document.getElementById("countdown").innerHTML =
                     "<div class='text-2xl font-serif text-gold animate-pulse'>O grande dia chegou!</div>";
                 return;
             }
@@ -335,9 +530,9 @@
 
         function scrollGallery(direction) {
             const container = document.getElementById('gallery-container');
-            container.scrollBy({ 
-                left: direction * CONFIG.scrollAmount(), 
-                behavior: 'smooth' 
+            container.scrollBy({
+                left: direction * CONFIG.scrollAmount(),
+                behavior: 'smooth'
             });
         }
 
