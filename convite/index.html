@@ -51,6 +51,28 @@
             background-size: 400% 400%;
             animation: gradient-shift 15s ease infinite;
         }
+
+        /* Dialog Styles */
+        #recado-dialog {
+            border: none;
+            border-radius: 1rem;
+            padding: 0;
+            max-width: 90vw;
+            width: 500px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        #recado-dialog::backdrop {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 640px) {
+            #recado-dialog {
+                max-width: 95vw;
+                width: 95vw;
+            }
+        }
     </style>
 </head>
 
@@ -80,7 +102,7 @@
                 Vamos celebrar o amor?
             </p>
 
-            <h1 class="animate-fade-in-up delay-200 font-script text-5xl lg:text-8xl mb-6 text-gold-light drop-shadow-2xl">
+            <h1 class="animate-fade-in-up delay-200 font-script text-5xl md:text-6xl lg:text-8xl mb-6 text-gold-light drop-shadow-2xl">
                 Shan & Hideak
             </h1>
 
@@ -88,7 +110,7 @@
                 <span class="h-px w-8 md:w-16 bg-white/80"></span>
                 <div>
                     <time class="block font-serif text-2xl md:text-3xl tracking-wide mb-2">14/jan/2026</time>
-                    <time class="block font-serif text-xl md:text-2xl tracking-wide">à partir das 11:00</time>
+                    <time class="block font-serif text-xl md:text-2xl tracking-wide">a partir das 11:00</time>
                 </div>
                 <span class="h-px w-8 md:w-16 bg-white/80"></span>
             </div>
@@ -183,22 +205,18 @@
                 </div>
 
                 <h2 class="font-serif text-4xl md:text-5xl mb-8 text-gray-800">Nossa História</h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-light mb-8">
+                <div class="text-lg md:text-xl text-gray-600 leading-relaxed font-light mb-2">
                     "Aonde fores, irei; onde repousares, ali repousarei! O teu povo será o meu povo, e o teu Deus será o
-                    meu Deus!" <br><br>
-                    <span class="text-2xl">Rute 1:16b NVI</span>
-                </p>
-
-                <div class="flex gap-12 justify-center mb-12">
-                    <div>
-                        <div class="text-2xl md:text-3xl leading-relaxed font-light mb-2">1</div>
-                        <div class="text-lg md:text-xl leading-relaxed font-light">propósito</div>
-                        <div class="text-lg md:text-xl leading-relaxed font-light">com Deus</div>
-                    </div>
+                    meu Deus!"
+                </div>
+                <div class="text-lg md:text-xl text-gray-600 leading-relaxed font-light mb-8">Rute 1:16b NVI</div>
+                <div class="text-lg md:text-xl text-gray-600 leading-relaxed font-light mb-6">
+                    Após muitas lutas e desafios, acumulamos muitos números. De distâncias superadas, selfies
+                    tiradas e mais de 450 mil mensagens trocadas.
                 </div>
 
-                <div class="flex gap-12 justify-center">
-                    <div>
+                <div class="flex gap-12 justify-center mb-6">
+                    <div class="w-[105px] md:w-[130px]">
                         <div class="text-2xl md:text-3xl leading-relaxed font-light mb-2">818,3 km</div>
                         <div class="text-lg md:text-xl leading-relaxed font-light">de distância</div>
                         <div class="text-lg md:text-xl leading-relaxed font-light">superadas</div>
@@ -208,10 +226,23 @@
                         <div class="text-lg md:text-xl leading-relaxed font-light">selfies</div>
                         <div class="text-lg md:text-xl leading-relaxed font-light">de casal</div>
                     </div>
-                    <div>
+                    <div class="w-[105px] md:w-[130px]">
                         <div class="text-2xl md:text-3xl leading-relaxed font-light mb-2">9,0 GiB</div>
                         <div class="text-lg md:text-xl leading-relaxed font-light">de conversas</div>
                         <div class="text-lg md:text-xl leading-relaxed font-light">no WhatsApp</div>
+                    </div>
+                </div>
+
+                <div class="text-lg md:text-xl text-gray-600 leading-relaxed font-light mb-6">
+                    Mas diante de tantos números, o mais importante foi perceber que durante nossos 4 anos de namoro,
+                </div>
+
+                <div class="flex gap-12 justify-center">
+                    <div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">temos</div>
+                        <div class="text-2xl md:text-3xl leading-relaxed font-light">1</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">único propósito</div>
+                        <div class="text-lg md:text-xl leading-relaxed font-light">com Deus.</div>
                     </div>
                 </div>
             </div>
@@ -401,7 +432,7 @@
                             <div>
                                 <h3 class="font-bold text-lg uppercase tracking-wider text-gray-800">Horário</h3>
                                 <p class="text-gray-600 text-lg mt-1">14 de Janeiro de 2026</p>
-                                <p class="text-gray-500">à partir das 11:00</p>
+                                <p class="text-gray-500">a partir das 11:00</p>
                             </div>
                         </div>
                     </div>
@@ -444,9 +475,9 @@
                         <div>Deixe um recado ou um versículo bíblico para os noivos! Nós vamos amar guardar cada palavra com muito carinho!</div>
                     </div>
                     <div class="order-2 flex flex-col items-center justify-center gap-2 mb-2 opacity-90">
-                        <a href="#" class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-white py-3 px-10 rounded-full font-serif transition-all duration-300 hover:-translate-y-1 shadow-xl border border-white/20">
+                        <button onclick="openRecadoDialog()" class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-white py-3 px-10 rounded-full font-serif transition-all duration-300 hover:-translate-y-1 shadow-xl border border-white/20">
                             ENVIAR RECADO
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -483,6 +514,68 @@
         </div>
     </footer>
 
+    <!-- RECADO DIALOG -->
+    <dialog id="recado-dialog">
+        <div class="bg-white rounded-lg overflow-hidden">
+            <!-- Dialog Header -->
+            <div class="bg-gold text-white px-6 py-4 flex justify-between items-center">
+                <h3 class="font-serif text-2xl">Enviar Recado 💖</h3>
+                <button onclick="closeRecadoDialog()" class="text-white hover:text-gray-200 transition-colors" aria-label="Fechar">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Dialog Content -->
+            <form id="recado-form" class="p-6 space-y-4">
+                <!-- Nome Field -->
+                <div>
+                    <label for="nome" class="block text-gray-700 font-semibold mb-2">Seu nome</label>
+                    <input 
+                        type="text" 
+                        id="nome" 
+                        name="nome" 
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
+                        placeholder="Digite seu nome"
+                    />
+                </div>
+
+                <!-- Recado Field -->
+                <div>
+                    <label for="recado" class="block text-gray-700 font-semibold mb-2">Recado para os noivos</label>
+                    <textarea 
+                        id="recado" 
+                        name="recado" 
+                        required
+                        rows="5"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all resize-none"
+                        placeholder="Deixe seu recado ou versículo bíblico..."
+                    ></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                    <button 
+                        type="button" 
+                        onclick="enviarRecadoParticular()"
+                        class="flex-1 bg-gray-800 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2"
+                    >
+                        Enviar em Particular
+                    </button>
+                    <button 
+                        type="button" 
+                        onclick="publicarNoMural()"
+                        class="flex-1 bg-gold hover:bg-gold-dark text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg"
+                    >
+                        Publicar no Mural de Recados
+                    </button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
     <!-- BACKGROUND MUSIC -->
     <audio id="background-music" loop>
         <source src="../music/vocal-livre.mp3" type="audio/mpeg">
@@ -500,6 +593,17 @@
             audio.play().catch(error => {
                 console.log('Autoplay blocked, waiting for user interaction');
                 document.body.addEventListener('click', () => { audio.play(); }, { once: true });
+            });
+
+            // Pause music when tab is not visible or browser is minimized
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    audio.pause();
+                } else {
+                    audio.play().catch(error => {
+                        console.log('Could not resume playback:', error);
+                    });
+                }
             });
         });
 
@@ -548,6 +652,95 @@
             .catch(error => {
                 console.error('Error loading particles config:', error);
             });
+
+        // Dialog Functions
+        function openRecadoDialog() {
+            const dialog = document.getElementById('recado-dialog');
+            dialog.showModal();
+        }
+
+        function closeRecadoDialog() {
+            const dialog = document.getElementById('recado-dialog');
+            const form = document.getElementById('recado-form');
+            form.reset();
+            dialog.close();
+        }
+
+        async function enviarRecadoParticular() {
+            const form = document.getElementById('recado-form');
+            
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const nome = document.getElementById('nome').value;
+            const recado = document.getElementById('recado').value;
+
+            try {
+                // TODO: Replace with actual API endpoint
+                const response = await fetch('https://api.example.com/recados/particular', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ nome, recado })
+                });
+
+                if (response.ok) {
+                    alert('Recado enviado com sucesso! ❤️');
+                    closeRecadoDialog();
+                } else {
+                    throw new Error('Erro ao enviar recado');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Erro ao enviar recado. Por favor, tente novamente.');
+            }
+        }
+
+        async function publicarNoMural() {
+            const form = document.getElementById('recado-form');
+            
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const nome = document.getElementById('nome').value;
+            const recado = document.getElementById('recado').value;
+
+            try {
+                // TODO: Replace with actual API endpoint
+                const response = await fetch('https://api.example.com/recados/mural', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ nome, recado })
+                });
+
+                if (response.ok) {
+                    alert('Recado publicado no mural com sucesso! 💖');
+                    closeRecadoDialog();
+                } else {
+                    throw new Error('Erro ao publicar recado');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Erro ao publicar recado. Por favor, tente novamente.');
+            }
+        }
+
+        // Close dialog when clicking outside
+        document.getElementById('recado-dialog').addEventListener('click', function(event) {
+            const rect = this.getBoundingClientRect();
+            const isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
+                rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+            if (!isInDialog) {
+                closeRecadoDialog();
+            }
+        });
     </script>
 </body>
 </html>
